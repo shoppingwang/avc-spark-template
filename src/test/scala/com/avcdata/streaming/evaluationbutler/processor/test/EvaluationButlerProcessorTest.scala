@@ -28,7 +28,7 @@ class EvaluationButlerProcessorTest
       , "--param"
       , "es.index.auto.create=true"
       , "--param"
-      , "es.resource=avcdata/evaluationbutler"
+      , "es.resource=evaluation/butler"
       , "--param"
       , "es.nodes=127.0.0.1"
       , "--param"
