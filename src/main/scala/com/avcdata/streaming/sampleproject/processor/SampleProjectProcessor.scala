@@ -39,7 +39,7 @@ class SampleProjectProcessor(batchDurationSeconds: Int, configItems: Map[String,
     val kafkaParams = Map[String, String](
       "auto.offset.reset" -> configItems.getOrElse("kafka.auto.offset.reset", "largest"),
       "zookeeper.connect" -> zookeeperAddress,
-      "group.id" -> "DemandMiningPosts",
+      "group.id" -> "TimeHonoredBrandPosts",
       "metadata.broker.list" -> KafkaUtil.getBrokerList(zookeeperAddress)
     )
 

@@ -4,7 +4,7 @@ import com.avcdata.etl.streaming.launcher.StreamProcessLauncher
 import org.junit.Test
 
 /**
-  * 评价管家处理器测试
+  * 示例工程处理器测试
   * <p/>
   * Author   : wangxp
   * <p/>
@@ -16,29 +16,19 @@ class SampleProjectProcessorTest
   def testProcess(): Unit =
   {
     val args = Array[String]("--process-class"
-      , "com.avcdata.etl.streaming.processor.EvaluationButlerProcessor"
+      , "com.avcdata.streaming.sampleproject.processor.SampleProjectProcessor"
       , "--batch-duration-seconds"
       , "10"
       , "--param"
-      , "redis.host=127.0.0.1"
+      , "kafka.read.topics=TimeHonoredBrandPosts"
       , "--param"
-      , "redis.port=6379"
+      , "kafka.zookeeper.hosts=zk-host1:2181,zk-host2:2181,zk-host3:2181"
       , "--param"
-      , "redis.listen.keys=mylist"
+      , "data.common.db.connecturi=jdbc:mysql://host:3306/avc_data_common?useUnicode=true&characterEncoding=utf-8&useSSL=false"
       , "--param"
-      , "es.index.auto.create=true"
+      , "data.common.db.username=user"
       , "--param"
-      , "es.resource=evaluation/butler"
-      , "--param"
-      , "es.nodes=127.0.0.1"
-      , "--param"
-      , "es.port=9200"
-      , "--param"
-      , "es.input.json=false"
-      , "--param"
-      , "es.write.operation=upsert"
-      , "--param"
-      , "es.output.json=false"
+      , "data.common.db.password=pass"
     )
 
     StreamProcessLauncher.main(args)
