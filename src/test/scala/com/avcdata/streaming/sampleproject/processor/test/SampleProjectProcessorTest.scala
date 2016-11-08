@@ -1,4 +1,4 @@
-package com.avcdata.streaming.evaluationbutler.processor.test
+package com.avcdata.streaming.sampleproject.processor.test
 
 import com.avcdata.etl.streaming.launcher.StreamProcessLauncher
 import org.junit.Test
@@ -10,7 +10,7 @@ import org.junit.Test
   * <p/>
   * DateTime : 16/7/11 13:30
   */
-class EvaluationButlerProcessorTest
+class SampleProjectProcessorTest
 {
   @Test
   def testProcess(): Unit =
@@ -39,11 +39,6 @@ class EvaluationButlerProcessorTest
       , "es.write.operation=upsert"
       , "--param"
       , "es.output.json=false"
-
-//      , "--param"
-//      , "es.nodes.discovery=false"
-//      , "--param"
-//      , "es.nodes.client.only=true"
     )
 
     StreamProcessLauncher.main(args)
