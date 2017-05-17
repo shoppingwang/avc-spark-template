@@ -1,7 +1,8 @@
 package com.avcdata.streaming.sampleproject.processor
 
+import com.avcdata.etl.common.util.KafkaUtil
 import com.avcdata.etl.streaming.template.StreamProcessTemplate
-import com.avcdata.etl.streaming.util.KafkaUtil
+import com.avcdata.etl.streaming.util.KafkaStreamUtil
 import kafka.message.MessageAndMetadata
 import kafka.serializer.StringDecoder
 import org.apache.spark.streaming.StreamingContext
@@ -57,12 +58,13 @@ class SampleProjectProcessor(batchDurationSeconds: Int, configItems: Map[String,
     {
       //获取当前消费数据的偏移量信息
       val offsetRanges = jsonRDD.asInstanceOf[HasOffsetRanges].offsetRanges
+      logInfo(s"The current processing offset ranges:\n${offsetRanges.mkString("\n")}")
 
       //TODO 业务处理逻辑
       jsonRDD.foreach(println)
 
       //更新数据库topic的offset值
-      KafkaUtil.updateDBOffsets(commonConnectUri, commonUsername, commonPassword, offsetRanges)
+      KafkaStreamUtil.updateDBOffsets(commonConnectUri, commonUsername, commonPassword, offsetRanges)
     })
   }
 }
