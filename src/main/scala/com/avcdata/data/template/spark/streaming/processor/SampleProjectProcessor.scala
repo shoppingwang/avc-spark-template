@@ -1,4 +1,4 @@
-package com.avcdata.streaming.sampleproject.processor
+package com.avcdata.data.template.spark.streaming.processor
 
 import com.avcdata.etl.common.util.KafkaUtil
 import com.avcdata.etl.streaming.template.StreamProcessTemplate

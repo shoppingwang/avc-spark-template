@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.avcdata.spark.template</groupId>
+    <groupId>com.avcdata.data.template</groupId>
     <artifactId>avc-spark-template</artifactId>
     <packaging>jar</packaging>
     <version>1.0</version>
@@ -48,6 +48,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.scalatest</groupId>
+            <artifactId>scalatest_2.10</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>com.avcdata.etl</groupId>
             <artifactId>etl-streaming</artifactId>
         </dependency>
@@ -86,10 +91,22 @@
             <groupId>org.apache.spark</groupId>
             <artifactId>spark-streaming-kafka_2.10</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+        </dependency>
     </dependencies>
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.scalatest</groupId>
+                <artifactId>scalatest_2.10</artifactId>
+                <version>3.0.0</version>
+                <scope>test</scope>
+            </dependency>
+
             <dependency>
                 <groupId>com.avcdata.etl</groupId>
                 <artifactId>etl-streaming</artifactId>
@@ -188,6 +205,13 @@
                 <groupId>org.apache.hbase</groupId>
                 <artifactId>hbase-server</artifactId>
                 <version>1.2.0-cdh5.7.0</version>
+                <scope>${dependency.scope}</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>4.2.5</version>
                 <scope>${dependency.scope}</scope>
             </dependency>
         </dependencies>

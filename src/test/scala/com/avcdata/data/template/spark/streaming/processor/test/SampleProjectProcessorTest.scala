@@ -1,4 +1,4 @@
-package com.avcdata.streaming.sampleproject.processor.test
+package com.avcdata.data.template.spark.streaming.processor.test
 
 import com.avcdata.etl.streaming.launcher.StreamProcessLauncher
 import org.junit.Test
@@ -16,7 +16,7 @@ class SampleProjectProcessorTest
   def testProcess(): Unit =
   {
     val args = Array[String]("--process-class"
-      , "com.avcdata.streaming.sampleproject.processor.SampleProjectProcessor"
+      , "com.avcdata.data.template.spark.streaming.processor.SampleProjectProcessor"
       , "--batch-duration-seconds"
       , "10"
       , "--param"
