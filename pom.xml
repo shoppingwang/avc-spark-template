@@ -31,8 +31,6 @@
             <id>develop</id>
             <properties>
                 <dependency.scope>provided</dependency.scope>
-                <hadoop.version>2.6.0-cdh5.7.0</hadoop.version>
-                <spark.version>1.6.0-cdh5.7.0</spark.version>
             </properties>
         </profile>
 
@@ -41,8 +39,6 @@
             <id>product</id>
             <properties>
                 <dependency.scope>provided</dependency.scope>
-                <hadoop.version>2.6.0-cdh5.7.0</hadoop.version>
-                <spark.version>1.6.0-cdh5.7.0</spark.version>
             </properties>
             <activation>
                 <activeByDefault>true</activeByDefault>
@@ -51,6 +47,9 @@
     </profiles>
 
     <properties>
+        <cdh.version>cdh5.12.0</cdh.version>
+        <hadoop.version>2.6.0-${cdh.version}</hadoop.version>
+        <spark.version>1.6.0-${cdh.version}</spark.version>
         <scala.version>2.10.4</scala.version>
         <mysql.version>5.1.38</mysql.version>
         <slf4j.version>1.7.5</slf4j.version>
@@ -194,7 +193,7 @@
             <dependency>
                 <groupId>org.apache.hbase</groupId>
                 <artifactId>hbase-spark</artifactId>
-                <version>1.2.0-cdh5.7.0</version>
+                <version>1.2.0-${cdh.version}</version>
                 <scope>compile</scope>
                 <exclusions>
                     <exclusion>
@@ -211,21 +210,21 @@
             <dependency>
                 <groupId>org.apache.hbase</groupId>
                 <artifactId>hbase-client</artifactId>
-                <version>1.2.0-cdh5.7.0</version>
+                <version>1.2.0-${cdh.version}</version>
                 <scope>${dependency.scope}</scope>
             </dependency>
 
             <dependency>
                 <groupId>org.apache.hbase</groupId>
                 <artifactId>hbase-protocol</artifactId>
-                <version>1.2.0-cdh5.7.0</version>
+                <version>1.2.0-${cdh.version}</version>
                 <scope>${dependency.scope}</scope>
             </dependency>
 
             <dependency>
                 <groupId>org.apache.hbase</groupId>
                 <artifactId>hbase-server</artifactId>
-                <version>1.2.0-cdh5.7.0</version>
+                <version>1.2.0-${cdh.version}</version>
                 <scope>${dependency.scope}</scope>
             </dependency>
 
